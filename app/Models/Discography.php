@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Artist extends Model
+class Discography extends Model
 {
     use SoftDeletes;
 
@@ -24,10 +24,10 @@ class Artist extends Model
     protected $dates = ['deleted_at'];
 
     /**
-     * Get the discographies
+     * Get the artist that owns the discography
      */
-    public function discographies()
+    public function artist()
     {
-        return $this->hasMany(__NAMESPACE__ .'\Discography');
+        return $this->belongsTo(__NAMESPACE__ .'\Artist');
     }
 }
