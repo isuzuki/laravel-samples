@@ -27,5 +27,16 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
+    /*
+    |--------------------------------------------------------------------------
+    | Api Routes
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::group(['prefix' => 'api', 'namespace' => 'Apis'], function () {
+        Route::get('artists', [
+            'as' => 'api.artist.all', 'uses' => 'ArtistController@all',
+        ]);
+    });
 });
