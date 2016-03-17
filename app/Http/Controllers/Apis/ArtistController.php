@@ -4,23 +4,49 @@ namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artist;
+use App\Models\Discography;
 use Illuminate\Http\Request;
 
 class ArtistController extends Controller
 {
     /**
+     * @var App\Models\Artist
+     */
+    protected $artist;
+
+    public function __construct(Artist $artist)
+    {
+        $this->artist = $artist;
+    }
+
+    /**
      * Response all artists json data
      *
-     * @param App\Models\Artist $artist
      * @return Illuminate\Http\JsonResponse
      */
-    public function all(Artist $artist)
+    public function all()
     {
-        $artists = $artist->get();
+        $artists = $this->artist->get();
 
         return response()->json([
             'items' => $artists->toArray(),
             'total' => $artists->count(),
+        ]);
+    }
+
+    /**
+     * Response discographies json data that owns the artist
+     *
+     * @param int $artistId
+     * @return Illuminate\Http\JsonResponse
+     */
+    public function discographies($artistId)
+    {
+        $artist = $this->artist->find($artistId);
+
+        return response()->json([
+            'items' => $artist->discographies->toArray(),
+            'total' => $artist->discographies->count(),
         ]);
     }
 }
