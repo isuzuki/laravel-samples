@@ -35,6 +35,12 @@ Route::group(['middleware' => ['web']], function () {
     |
     */
     Route::group(['prefix' => 'api', 'namespace' => 'Apis'], function () {
+        /*
+        |--------------------------------------------------------------------------
+        | Artists Api Routes
+        |--------------------------------------------------------------------------
+        |
+        */
         Route::get('artists', [
             'as' => 'api.artist.all', 'uses' => 'ArtistController@all',
         ]);
@@ -44,5 +50,15 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('artists/{artist_id}/musics', [
             'as' => 'api.artist.musics', 'uses' => 'ArtistController@musics',
         ])->where('artist_id', '(\d)+');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Discographies Api Routes
+        |--------------------------------------------------------------------------
+        |
+        */
+        Route::get('discographies', [
+            'as' => 'api.discographies.all', 'uses' => 'DiscographyController@all',
+        ]);
     });
 });

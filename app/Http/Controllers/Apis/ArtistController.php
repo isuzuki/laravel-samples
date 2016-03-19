@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artist;
-use App\Models\Discography;
 use Illuminate\Http\Request;
 
 class ArtistController extends Controller
