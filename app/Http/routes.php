@@ -41,5 +41,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('artists/{artist_id}/discographies', [
             'as' => 'api.artist.discographies', 'uses' => 'ArtistController@discographies',
         ])->where('artist_id', '(\d)+');
+        Route::get('artists/{artist_id}/musics', [
+            'as' => 'api.artist.musics', 'uses' => 'ArtistController@musics',
+        ])->where('artist_id', '(\d)+');
     });
 });

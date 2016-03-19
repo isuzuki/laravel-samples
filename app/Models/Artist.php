@@ -30,4 +30,12 @@ class Artist extends Model
     {
         return $this->hasMany(__NAMESPACE__ .'\Discography');
     }
+
+    /**
+     * Get the musics
+     */
+    public function musics()
+    {
+        return $this->hasMany(__NAMESPACE__ .'\Music');
+    }
 }

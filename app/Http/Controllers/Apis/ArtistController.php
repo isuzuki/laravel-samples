@@ -49,4 +49,20 @@ class ArtistController extends Controller
             'total' => $artist->discographies->count(),
         ]);
     }
+
+    /**
+     * Response musics json data that owns the artist
+     *
+     * @param int $artistId
+     * @return Illuminate\Http\JsonResponse
+     */
+    public function musics($artistId)
+    {
+        $artist = $this->artist->find($artistId);
+
+        return response()->json([
+            'items' => $artist->musics->toArray(),
+            'total' => $artist->musics->count(),
+        ]);
+    }
 }
