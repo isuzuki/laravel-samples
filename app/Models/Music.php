@@ -23,4 +23,9 @@ class Music extends Model
     {
         return $this->belongsTo(__NAMESPACE__ .'\Artist');
     }
+
+    public function discographies()
+    {
+        return $this->belongsToMany(__NAMESPACE__ .'\Discography');
+    }
 }
