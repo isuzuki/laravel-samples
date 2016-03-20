@@ -31,4 +31,19 @@ class DiscographyController extends Controller
             'total' => $discographies->count(),
         ]);
     }
+
+    /**
+     * Response discography json data
+     *
+     * @param int $discographyId
+     * @return Illuminate\Http\JsonResponse
+     */
+    public function get($discographyId)
+    {
+        $discography = $this->discography->find($discographyId);
+        return response()->json([
+            'items' => $discography->musics->toArray(),
+            'total' => $discography->musics->count(),
+        ]);
+    }
 }

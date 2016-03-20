@@ -60,5 +60,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('discographies', [
             'as' => 'api.discographies.all', 'uses' => 'DiscographyController@all',
         ]);
+        Route::get('discographies/{discography_id}', [
+            'as' => 'api.discographies.get', 'uses' => 'DiscographyController@get',
+        ])->where('discography_id', '(\d)+');
     });
 });
