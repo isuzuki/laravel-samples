@@ -13,11 +13,9 @@ class ArtistsTableSeeder extends Seeder
     public function run()
     {
         Artist::insert([
-            ['name' => str_random(30)],
-            ['name' => str_random(30)],
-            ['name' => str_random(30)],
-            ['name' => str_random(30)],
-            ['name' => str_random(30)],
+            ['name' => 'artist1'],
+            ['name' => 'artist2'],
+            ['name' => 'artist3'],
         ]);
     }
 }

@@ -13,11 +13,9 @@ class MusicsTableSeeder extends Seeder
     public function run()
     {
         Music::insert([
-            ['artist_id' => 1, 'name' => str_random(30)],
-            ['artist_id' => 1, 'name' => str_random(30)],
-            ['artist_id' => 1, 'name' => str_random(30)],
-            ['artist_id' => 1, 'name' => str_random(30)],
-            ['artist_id' => 1, 'name' => str_random(30)],
+            ['artist_id' => 1, 'name' => 'artist1_music1'],
+            ['artist_id' => 1, 'name' => 'artist1_music2'],
+            ['artist_id' => 2, 'name' => 'artist2_music1'],
         ]);
     }
 }
