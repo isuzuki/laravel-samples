@@ -46,4 +46,19 @@ class RegionController extends Controller
             'total' => $region->prefectures->count(),
         ]);
     }
+
+    /**
+     * Response cities json data
+     *
+     * @param int $regionId
+     * @return Illuminate\Http\JsonResponse
+     */
+    public function cities($regionId)
+    {
+        $region = $this->region->find($regionId);
+        return response()->json([
+            'items' => $region->cities->toArray(),
+            'total' => $region->cities->count(),
+        ]);
+    }
 }

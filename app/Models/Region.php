@@ -27,4 +27,12 @@ class Region extends Model
     {
         return $this->hasMany(__NAMESPACE__ .'\Prefecture');
     }
+
+    /**
+     * Get the cities
+     */
+    public function cities()
+    {
+        return $this->hasManyThrough(__NAMESPACE__ .'\City', __NAMESPACE__ .'\Prefecture');
+    }
 }

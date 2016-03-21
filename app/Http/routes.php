@@ -76,6 +76,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('regions/{region_id}/prefectures', [
             'as' => 'api.regions.prefectures', 'uses' => 'RegionController@prefectures',
         ])->where('region_id', '(\d)+');
+        Route::get('regions/{region_id}/cities', [
+            'as' => 'api.regions.cities', 'uses' => 'RegionController@cities',
+        ])->where('region_id', '(\d)+');
 
         /*
         |--------------------------------------------------------------------------
