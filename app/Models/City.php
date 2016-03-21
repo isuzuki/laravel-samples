@@ -28,4 +28,13 @@ class City extends Model
     {
         return $this->belongsTo(__NAMESPACE__ .'\Prefecture');
     }
+
+    /**
+     * Get the region
+     */
+    public function region()
+    {
+        return $this->prefecture()->getResults()
+            ->belongsTo(__NAMESPACE__ .'\Region');
+    }
 }

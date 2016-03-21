@@ -82,7 +82,7 @@ Route::group(['middleware' => ['web']], function () {
 
         /*
         |--------------------------------------------------------------------------
-        | Regions Api Routes
+        | Prefectures Api Routes
         |--------------------------------------------------------------------------
         |
         */
@@ -92,5 +92,15 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('prefectures/{prefecture_id}/cities', [
             'as' => 'api.prefectures.cities', 'uses' => 'PrefectureController@cities',
         ])->where('prefecture_id', '(\d)+');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Cities Api Routes
+        |--------------------------------------------------------------------------
+        |
+        */
+        Route::get('cities/{city_id}', [
+            'as' => 'api.cities.get', 'uses' => 'CityController@get',
+        ])->where('city_id', '(\d)+');
     });
 });
