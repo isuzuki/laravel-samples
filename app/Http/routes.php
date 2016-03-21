@@ -63,5 +63,31 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('discographies/{discography_id}', [
             'as' => 'api.discographies.get', 'uses' => 'DiscographyController@get',
         ])->where('discography_id', '(\d)+');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Regions Api Routes
+        |--------------------------------------------------------------------------
+        |
+        */
+        Route::get('regions', [
+            'as' => 'api.regions.all', 'uses' => 'RegionController@all',
+        ]);
+        Route::get('regions/{region_id}/prefectures', [
+            'as' => 'api.regions.prefectures', 'uses' => 'RegionController@prefectures',
+        ])->where('region_id', '(\d)+');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Regions Api Routes
+        |--------------------------------------------------------------------------
+        |
+        */
+        Route::get('prefectures', [
+            'as' => 'api.prefectures.all', 'uses' => 'PrefectureController@all',
+        ]);
+        Route::get('prefectures/{prefecture_id}/cities', [
+            'as' => 'api.prefectures.cities', 'uses' => 'PrefectureController@cities',
+        ])->where('prefecture_id', '(\d)+');
     });
 });
