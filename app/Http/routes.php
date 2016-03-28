@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -27,6 +23,24 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
+
+    /*
+    |--------------------------------------------------------------------------
+    | Pjax Routes
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::group(['prefix' => 'pjax'], function () {
+        Route::get('index', [
+            'as' => 'pjax.index', 'uses' => 'PjaxController@index',
+        ]);
+        Route::get('about', [
+            'as' => 'pjax.about', 'uses' => 'PjaxController@about',
+        ]);
+        Route::get('hello', [
+            'as' => 'pjax.hello', 'uses' => 'PjaxController@hello',
+        ]);
+    });
 
     /*
     |--------------------------------------------------------------------------
