@@ -44,6 +44,24 @@ Route::group(['middleware' => ['web']], function () {
 
     /*
     |--------------------------------------------------------------------------
+    | P(Post)R(Redirect)G(Get) Pattern Routes
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::group(['prefix' => 'prg'], function () {
+        Route::get('input', [
+            'as' => 'prg.input', 'uses' => 'PrgController@input',
+        ]);
+        Route::post('submit', [
+            'as' => 'prg.submit', 'uses' => 'PrgController@submit',
+        ]);
+        Route::get('complete', [
+            'as' => 'prg.complete', 'uses' => 'PrgController@complete',
+        ]);
+    });
+
+    /*
+    |--------------------------------------------------------------------------
     | Api Routes
     |--------------------------------------------------------------------------
     |
