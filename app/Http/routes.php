@@ -62,6 +62,24 @@ Route::group(['middleware' => ['web']], function () {
 
     /*
     |--------------------------------------------------------------------------
+    | Polymorphic Routes
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::group(['prefix' => 'polymorphic'], function () {
+        Route::get('staff', [
+            'as' => 'polymorphic.staff', 'uses' => 'PolymorphicController@staff',
+        ]);
+        Route::get('order', [
+            'as' => 'polymorphic.order', 'uses' => 'PolymorphicController@order',
+        ]);
+        Route::get('photo', [
+            'as' => 'polymorphic.photo', 'uses' => 'PolymorphicController@photo',
+        ]);
+    });
+
+    /*
+    |--------------------------------------------------------------------------
     | Api Routes
     |--------------------------------------------------------------------------
     |

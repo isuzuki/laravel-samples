@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->artistSeeder();
         $this->locationSeeder();
+        $this->polymorphicPhotosSeeder();
     }
 
     protected function artistSeeder()
@@ -28,5 +29,10 @@ class DatabaseSeeder extends Seeder
         $this->call(RegionsTableSeeder::class);
         $this->call(PrefecturesTableSeeder::class);
         $this->call(CitiesTableSeeder::class);
+    }
+
+    protected function polymorphicPhotosSeeder()
+    {
+        $this->call(PolymorphicPhotosTableSeeder::class);
     }
 }
