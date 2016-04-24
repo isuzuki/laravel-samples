@@ -30,6 +30,18 @@ Route::group(['middleware' => ['web']], function () {
     |--------------------------------------------------------------------------
     |
     */
+    Route::group(['prefix' => 'item'], function () {
+        Route::get('', [
+            'as' => 'item.index', 'uses' => 'ItemController@index',
+        ]);
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Pjax Routes
+    |--------------------------------------------------------------------------
+    |
+    */
     Route::group(['prefix' => 'pjax'], function () {
         Route::get('index', [
             'as' => 'pjax.index', 'uses' => 'PjaxController@index',
