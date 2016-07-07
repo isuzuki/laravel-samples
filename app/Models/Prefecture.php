@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pivots\ItemPrefecture;
 use Illuminate\Database\Eloquent\Model;
 
 class Prefecture extends Model
@@ -34,5 +35,14 @@ class Prefecture extends Model
     public function cities()
     {
         return $this->hasMany(__NAMESPACE__ .'\City');
+    }
+
+    /**
+     * Get the items
+     */
+    public function items()
+    {
+        return $this->belongsToMany(__NAMESPACE__ .'\Item')
+            ->withPivot(ItemPrefecture::$columns);
     }
 }

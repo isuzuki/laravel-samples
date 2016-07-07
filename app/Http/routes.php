@@ -118,6 +118,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('prefecture-eager', [
             'as' => 'region.prefecture.eager', 'uses' => 'RegionController@prefectureEager',
         ]);
+        Route::get('prefecture-item', [
+            'as' => 'region.prefecture.item', 'uses' => 'RegionController@prefectureItem',
+        ]);
         Route::get('city-n1', [
             'as' => 'region.city.n1', 'uses' => 'RegionController@cityN1',
         ]);

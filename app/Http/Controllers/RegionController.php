@@ -27,6 +27,12 @@ class RegionController extends Controller
         return view('region.prefecture', compact('regions'));
     }
 
+    public function prefectureItem()
+    {
+        $regions = $this->region->with('prefectures', 'prefectures.items')->get();
+        return view('region.prefecture_item', compact('regions'));
+    }
+
     public function cityN1()
     {
         $regions = $this->region->get();
