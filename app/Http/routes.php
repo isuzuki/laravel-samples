@@ -92,6 +92,21 @@ Route::group(['middleware' => ['web']], function () {
 
     /*
     |--------------------------------------------------------------------------
+    | Store Routes
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::group(['prefix' => 'store'], function () {
+        Route::get('register', [
+            'as' => 'store.register', 'uses' => 'StoreController@register',
+        ]);
+        Route::get('update/{id}', [
+            'as' => 'store.update', 'uses' => 'StoreController@update',
+        ])->where('id', '(\d)+');
+    });
+
+    /*
+    |--------------------------------------------------------------------------
     | Api Routes
     |--------------------------------------------------------------------------
     |
