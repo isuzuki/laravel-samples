@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->polymorphicPhotosSeeder();
 
         $this->call(ItemsSitesTableSeeder::class);
+        $this->call(ItemsPrefecturesTableSeeder::class);
     }
 
     protected function artistSeeder()

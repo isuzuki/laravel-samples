@@ -107,6 +107,31 @@ Route::group(['middleware' => ['web']], function () {
 
     /*
     |--------------------------------------------------------------------------
+    | Region Routes
+    |--------------------------------------------------------------------------
+    |
+    */
+    Route::group(['prefix' => 'region'], function () {
+        Route::get('prefecture-n1', [
+            'as' => 'region.prefecture.n1', 'uses' => 'RegionController@prefectureN1',
+        ]);
+        Route::get('prefecture-eager', [
+            'as' => 'region.prefecture.eager', 'uses' => 'RegionController@prefectureEager',
+        ]);
+        Route::get('prefecture-item', [
+            'as' => 'region.prefecture.item', 'uses' => 'RegionController@prefectureItem',
+        ]);
+        Route::get('city-n1', [
+            'as' => 'region.city.n1', 'uses' => 'RegionController@cityN1',
+        ]);
+        Route::get('city-eager', [
+            'as' => 'region.city.eager', 'uses' => 'RegionController@cityEager',
+        ]);
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Api Routes
     |--------------------------------------------------------------------------
     |
